@@ -1,0 +1,39 @@
+
+<script>
+    class Bank {
+        constructor(bankname, branch, accountnumber, accountname, ifsc, balance) {
+            this.bankname = bankname;
+            this.branch = branch;
+            this.accountnumber = accountnumber;
+            this.accountname = accountname;
+            this.ifsc = ifsc;
+            this.balance = balance;
+        }
+
+        showHistory(history) {
+            console.log("Balance History");
+            history.forEach(entry => {
+                console.log(`Date: ${entry.date} [Rs ${entry.amount}] ${entry.type}`);
+            });
+        }
+    }
+
+    let BOB = new Bank("BOB", "Amreli", "123456789101", "Bhavdeep Savaliya", "HDFC450680", "1550000");
+
+    const transactionHistory = [
+        { date: "02/12/2024", type: "Deposit", amount: 200 },
+        { date: "01/12/2024", type: "Withdrawal", amount: 50 },
+        { date: "13/1/2024", type: "Withdrawal", amount: 150 }
+    ];
+
+
+    for (let key in BOB) {
+        if (BOB.hasOwnProperty(key)) { 
+            console.log(`${key} : ${BOB[key]}`);
+        }
+    }
+
+    console.log(" ");
+
+    BOB.showHistory(transactionHistory);
+</script>
